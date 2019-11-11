@@ -17,22 +17,30 @@ require("channels");
 
 document.addEventListener("turbolinks:request-start", function() {
   let indexMain = document.querySelector(".indexMain");
+  let registerMain = document.querySelector(".registerMain");
+  let candidateMain = document.querySelector(".candidateMain");
   if (indexMain) {
     indexMain.classList.add("fadeout");
   }
-  let registerMain = document.querySelector(".registerMain");
   if (registerMain) {
     registerMain.classList.add("fadeout");
+  }
+  if (candidateMain) {
+    candidateMain.classList.add("fadeout");
   }
 });
 
 document.addEventListener("turbolinks:render", function() {
   let indexMain = document.querySelector(".indexMain");
+  let registerMain = document.querySelector(".registerMain");
+  let candidateMain = document.querySelector(".candidateMain");
   if (indexMain) {
     indexMain.classList.add("fadein");
   }
-  let registerMain = document.querySelector(".registerMain");
   if (registerMain) {
     registerMain.classList.add("fadein");
+  }
+  if (candidateMain) {
+    candidateMain.classList.add("fadein");
   }
 });

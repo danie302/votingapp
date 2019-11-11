@@ -7,5 +7,5 @@ class Candidate < ApplicationRecord
   validates :cc, presence: true
   validates :city, presence: true
   validates :department, presence: true
-  validates :postion, presence: true
+  validates :position, presence: true
 end
