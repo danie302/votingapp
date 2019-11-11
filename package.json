@@ -8,6 +8,9 @@
     "@rails/webpacker": "^4.0.7",
     "turbolinks": "^5.2.0"
   },
+  "scripts": {
+    "install": "bundle install"
+  },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
