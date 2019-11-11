@@ -4,7 +4,7 @@
     <title>Votingapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -37,6 +37,12 @@
           <li class="nav-item">
             <%= link_to({controller: "home", action: "index"}, class: "nav-link") do %>
               Register voting point
+              <span class="sr-only">(current)</span>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to({controller: "politic_party", action: "index"}, class: "nav-link") do %>
+              Register politic party
               <span class="sr-only">(current)</span>
             <% end %>
           </li>

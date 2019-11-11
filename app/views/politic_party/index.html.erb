@@ -1,0 +1,30 @@
+<div class="registerMain">
+    <div class="card">
+        <div class="card-header text-center">
+            Welcome future politic party
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Let your party be part of our system</h5>
+            <p class="card-text text-center">Fill the form to register your party in our voting system and be able to register you candidates.</p>
+        </div>
+
+        <%= form_for :politic_party, :method => "post",:url => { :action => :register }, :html => {:class => 'container text-center'} do |f| %>
+            <p class="form-group">
+                <%= f.label "Name of your party", nil, class: '' %><br>
+                <%= f.text_field :name, placeholder: 'Party Name', class: 'form-control text-center' %>
+            </p>
+            <p>
+                <%= f.submit "Register Party", class: 'btn btn-secondary text-center' %>
+            </p>
+            <div class="alert alert-success <%= @state == "save" ? "display" : "hidden" %>" role="alert">
+                Party successfully register
+            </div>
+            <div class="alert alert-warning <%= @state == "exist" ? "display" : "hidden" %>" role="alert">
+                Party already exist
+            </div>
+            <div class="alert alert-danger <%= @state == "error" ? "display" : "hidden" %>" role="alert">
+                There is an error
+            </div>
+        <% end %>
+    </div>
+</div>
