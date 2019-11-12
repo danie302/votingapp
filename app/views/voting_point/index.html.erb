@@ -1,0 +1,35 @@
+<div class="candidateMain">
+    <div class="card">
+        <div class="card-header text-center">
+            Welcome administrator
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Add a new voting point</h5>
+            <p class="card-text text-center">Fill the form to register the new voting point.</p>
+        </div>
+
+        <%= form_for :voting_point, :method => "post",:url => { :action => :register }, :html => {:class => 'container text-center'} do |f| %>
+            <div class="alert alert-warning <%= @state == "exist" ? "display" : "hidden" %>" role="alert">
+                Voting point already exist
+            </div>
+            <div class="alert alert-danger <%= @state == "VotingPointDontExist" ? "display" : "hidden" %>" role="alert">
+                Voting point dont exist
+            </div>
+            <p class="form-group">
+                <%= f.text_field :name, placeholder: 'Name', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :address, placeholder: 'Address', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :city, placeholder: 'City', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :department, placeholder: 'Department', class: 'form-control text-center' %>
+            </p>
+            <p>
+                <%= f.submit "Register Voting Point", class: 'btn btn-secondary text-center' %>
+            </p>
+        <% end %>
+    </div>
+</div>

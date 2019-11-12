@@ -20,13 +20,13 @@ document.addEventListener("turbolinks:request-start", function() {
   let registerMain = document.querySelector(".registerMain");
   let candidateMain = document.querySelector(".candidateMain");
   if (indexMain) {
-    indexMain.classList.add("fadeout");
+    indexMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (registerMain) {
-    registerMain.classList.add("fadeout");
+    registerMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (candidateMain) {
-    candidateMain.classList.add("fadeout");
+    candidateMain.classList.add("slide-in-elliptic-left-bck");
   }
 });
 
@@ -35,12 +35,12 @@ document.addEventListener("turbolinks:render", function() {
   let registerMain = document.querySelector(".registerMain");
   let candidateMain = document.querySelector(".candidateMain");
   if (indexMain) {
-    indexMain.classList.add("fadein");
+    indexMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (registerMain) {
-    registerMain.classList.add("fadein");
+    registerMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (candidateMain) {
-    candidateMain.classList.add("fadein");
+    candidateMain.classList.add("slide-in-elliptic-left-bck");
   }
 });
