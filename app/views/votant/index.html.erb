@@ -1,0 +1,41 @@
+<div class="votantMain">
+    <div class="card">
+        <div class="card-header text-center">
+            Welcome citizen
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">Become part of our system</h5>
+            <p class="card-text text-center">Fill the form to register yourself in our voting system as a votant and be able to participate in the elections.</p>
+        </div>
+
+        <%= form_for :votant, :method => "post",:url => { :action => :register }, :html => {:class => 'container text-center'} do |f| %>
+            <div class="alert alert-warning <%= @state == "exist" ? "display" : "hidden" %>" role="alert">
+                Votant already register
+            </div>
+            <div class="alert alert-danger <%= @state == "notExist" ? "display" : "hidden" %>" role="alert">
+                Voting point dont exist
+            </div>
+            <p class="form-group">
+                <%= f.text_field :name, placeholder: 'Name', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :last_name, placeholder: 'Last Name', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :cc, placeholder: 'CC', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :city, placeholder: 'City', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :department, placeholder: 'Department', class: 'form-control text-center' %>
+            </p>
+            <p class="form-group">
+                <%= f.text_field :voting_point, placeholder: 'Voting Point Name', class: 'form-control text-center' %>
+            </p>
+            <p>
+                <%= f.submit "Register votant", class: 'btn btn-secondary text-center' %>
+            </p>
+        <% end %>
+    </div>
+</div>
