@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'candidate/edit' => 'candidate#edit'
   get 'votingpoint' => 'voting_point#index'
   get 'votant' => 'votant#index'
+  get 'vote' => 'vote#index'
   post 'register/new' => 'politic_party#register'
   post 'candidate/register' => 'candidate#register'
   post 'candidate/edit' => 'candidate#edit_candidate'
