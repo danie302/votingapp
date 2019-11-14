@@ -1,6 +1,11 @@
 class VotantController < ApplicationController
     def index
         @state = session["votantState"]
+        @voting_points = VotingPoint.all
+        @voting_points_names = ["Choose your voting point"]
+        @voting_points.each { |v|
+            @voting_points_names.push(v[:name])
+        }
     end
 
     def register

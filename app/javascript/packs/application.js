@@ -23,10 +23,10 @@ document.addEventListener("turbolinks:request-start", function() {
     indexMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (registerMain) {
-    registerMain.classList.add("slide-in-elliptic-left-bck");
+    registerMain.classList.add("flip-2-hor-top-1");
   }
   if (candidateMain) {
-    candidateMain.classList.add("slide-in-elliptic-left-bck");
+    candidateMain.classList.add("rotate-scale-up-diag-1");
   }
 });
 
@@ -38,9 +38,9 @@ document.addEventListener("turbolinks:render", function() {
     indexMain.classList.add("slide-in-elliptic-left-bck");
   }
   if (registerMain) {
-    registerMain.classList.add("slide-in-elliptic-left-bck");
+    registerMain.classList.add("flip-2-hor-top-1");
   }
   if (candidateMain) {
-    candidateMain.classList.add("slide-in-elliptic-left-bck");
+    candidateMain.classList.add("rotate-scale-up-diag-1");
   }
 });

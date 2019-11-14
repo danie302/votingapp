@@ -1,4 +1,4 @@
-<div class="votantMain">
+<div class="registerMain">
     <div class="card">
         <div class="card-header text-center">
             Welcome citizen
@@ -31,7 +31,7 @@
                 <%= f.text_field :department, placeholder: 'Department', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.text_field :voting_point, placeholder: 'Voting Point Name', class: 'form-control text-center' %>
+                <%= f.select "voting_point", options_for_select(@voting_points_names), class: 'form-control text-center' %>
             </p>
             <p>
                 <%= f.submit "Register votant", class: 'btn btn-secondary text-center' %>

@@ -1,6 +1,11 @@
 class CandidateController < ApplicationController
     def index 
         @state = session["candState"]
+        @parties = PoliticParty.all
+        @parties_names = ["Choose a party"]
+        @parties.each { |p|
+            @parties_names.push(p[:name])
+        }
     end
 
     def register

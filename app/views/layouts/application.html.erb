@@ -47,6 +47,21 @@
             <% end %>
           </li>
         </ul>
+        <ul class="navbar-nav my-2 my-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Edit information
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to({controller: "home", action: "index"}, class: "dropdown-item") do %>
+                Candidate
+              <% end %>
+              <%= link_to({controller: "home", action: "index"}, class: "dropdown-item ") do %>
+                Votant
+              <% end %>
+            </div>
+          </li>
+        </ul>
       </div>
     </nav>
     <%= yield %>

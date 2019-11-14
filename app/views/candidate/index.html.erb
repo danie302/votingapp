@@ -35,11 +35,11 @@
             </p>
             <p class="form-group">
                 <%= f.label "Position", nil, class: '' %><br>
-                <%= f.select "position", options_for_select([ "Alcaldia", "Gobernación" ]), class: 'form-control text-center' %>
+                <%= f.select "position", options_for_select(["Choose a position", "Alcaldia", "Gobernación" ]), class: 'form-control text-center' %>
             </p>
             <p class="form-group">
                 <%= f.label "Party", nil, class: '' %><br>
-                <%= f.text_field :party, placeholder: 'Party', class: 'form-control text-center' %>
+                <%= f.select "party", options_for_select(@parties_names), class: 'form-control text-center' %>
             </p>
             <p class="form-group">
                 <%= f.label "Picture", nil, class: '' %><br>
