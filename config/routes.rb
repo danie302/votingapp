@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root 'home#index', as: 'home'
   get 'register' => 'politic_party#index'
   get 'candidate' => 'candidate#index'
+  get 'candidate/edit' => 'candidate#edit'
   get 'votingpoint' => 'voting_point#index'
   get 'votant' => 'votant#index'
   post 'register/new' => 'politic_party#register'
   post 'candidate/register' => 'candidate#register'
+  post 'candidate/edit' => 'candidate#edit_candidate'
   post 'votingpoint/register' => 'voting_point#register'
   post 'votant/register' => 'votant#register'
 end

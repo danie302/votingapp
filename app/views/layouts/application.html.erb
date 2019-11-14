@@ -50,15 +50,14 @@
         <ul class="navbar-nav my-2 my-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Edit information
+              Edit Candidate
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to({controller: "home", action: "index"}, class: "dropdown-item") do %>
-                Candidate
-              <% end %>
-              <%= link_to({controller: "home", action: "index"}, class: "dropdown-item ") do %>
-                Votant
-              <% end %>
+              <% @candidates.each do |c| %>
+                <%= link_to({controller: "candidate", action: "edit", params: {cc: c[:cc]}}, class: "dropdown-item") do %>
+                  <%= c[:cc] %>
+                <% end %>
+              <%end%>
             </div>
           </li>
         </ul>
