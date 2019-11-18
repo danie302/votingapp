@@ -1,21 +1,21 @@
 class PoliticPartyController < ApplicationController
 
     def index
-        @state = session["politicState"]
+        @state = flash["politicState"]
     end
 
     def register
         @politic_party = PoliticParty.find_by(politic_params)
         if @politic_party
-            session["politicState"] = "exist"
+            flash["politicState"] = "exist"
             redirect_to :action => "index"
         else
             @politic_party = PoliticParty.new(politic_params)
             if @politic_party.save
-                session["politicState"] = "save"
+                flash["politicState"] = "save"
                 redirect_to :action => "index"
             else
-                session["politicState"] = "error"
+                flash["politicState"] = "error"
                 redirect_to :action => "index"
             end
         end

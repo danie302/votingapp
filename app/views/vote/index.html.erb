@@ -1,0 +1,32 @@
+<div class="container m-2" id="voteBox">
+	<%= form_for :vote, :method => "post",:url => { :action => :init_vote }, :html => {:class => 'container text-center'} do |f| %>
+		<p class="form-group row">
+			<%= f.label "Select your voting point", nil, class: 'col-6' %><br>
+			<%= f.select "voting_point", options_for_select(@votingPoint), class: 'form-control text-center col-6' %>
+		</p>
+		<p class="form-group row">
+			<%= f.label "Enter your CC", nil, class: 'col-6' %><br>
+			<%= f.number_field :cc, placeholder: 'CC', class: 'form-control text-center col-6' %>
+		</p>
+		<p>
+			<%= f.submit "Start Voting", class: 'btn btn-secondary text-center' %>
+		</p>
+		<div class="alert alert-success <%= @state == "save" ? "display" : "hidden" %>" role="alert">
+			Party successfully register
+		</div>
+		<div class="alert alert-warning <%= @state == "exist" ? "display" : "hidden" %>" role="alert">
+			Party already exist
+		</div>
+		<div class="alert alert-danger <%= @state == "error" ? "display" : "hidden" %>" role="alert">
+			There is an error
+		</div>
+	<% end %>
+	<% if @render == "vote1" %>
+		<%= render @render %>
+	<% end %>
+</div>
+<script>
+	$(".btn").click(()=>{
+	    console.log("hola")
+	})
+</script>

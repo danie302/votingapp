@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post 'candidate/edit' => 'candidate#edit_candidate'
   post 'votingpoint/register' => 'voting_point#register'
   post 'votant/register' => 'votant#register'
+  post 'vote/init' => 'vote#init_vote'
 end

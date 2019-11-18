@@ -1,20 +1,17 @@
 class VotingPointController < ApplicationController
     def index
-        @state = session["votingState"]
+        @state = flash["votingState"]
     end
 
     def register
-        puts "---------------------------"
-        puts voting_point_params
-        puts "---------------------------"
         @point = VotingPoint.find_by(name: voting_point_params[:name])
         if @point
-            session["votingState"] = "exist"
+            flash["votingState"] = "exist"
             redirect_to :action => "index"
         else
             @point = VotingPoint.new(voting_point_params)
             if @point.save
-                session["votingState"] = "save"
+                flash["votingState"] = "save"
                 redirect_to :controller => "home" ,:action => "index"
             else
                 puts "Save error"

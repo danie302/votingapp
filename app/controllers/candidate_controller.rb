@@ -1,6 +1,6 @@
 class CandidateController < ApplicationController
     def index 
-        @state = session["candState"]
+        @state = flash["candState"]
         @parties = PoliticParty.all
         @parties_names = ["Choose a party"]
         @parties.each { |p|
@@ -13,15 +13,15 @@ class CandidateController < ApplicationController
         if @politic_party
             @candidate = Candidate.find_by(cc: candidate_params[:cc])
             if @candidate
-                session["candState"] = "exist"
+                flash["candState"] = "exist"
                 redirect_to :action => "index"
             else
-                session["candState"] = "Success"
+                flash["candState"] = "Success"
                 @politic_party.candidates.create(name: candidate_params[:name], last_name: candidate_params[:last_name], cc: candidate_params[:cc], cv: candidate_params[:cv], city: candidate_params[:city], department: candidate_params[:department], position: candidate_params[:position], picture: candidate_params[:picture], gov_plan: candidate_params[:gov_plan])
                 redirect_to :controller => "home", :action => "index"
             end
         else
-            session["candState"] = "PoliticPartyDontExist"
+            flash["candState"] = "PoliticPartyDontExist"
             redirect_to :action => "index"
         end
     end
