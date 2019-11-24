@@ -1,1 +1,25 @@
-Hello alcaldia
+<div class='container text-center vote1'>
+    <div class="display-4">Alcaldia</div>
+    <div class="row">
+        <%if @candidates %>
+            <% @candidates.each do |c| %>
+                <div class="card col-sm-4 m-auto rounded" style="width: 18rem;">
+                    <%= image_tag(c.picture, class: "img-fluid img-thumbnail p-1 rounded") %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= c[:name] %> <%= c[:last_name] %> </h5>
+                        <p class="card-text"><%= c[:cv] %></p>
+                        <div class="btn btn-primary" onclick="firstVote({vote: {name: '<%=c[:name]%>', id: '<%=c[:id]%>'}})">Go somewhere</div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+<script>
+	$(".initVote").fadeOut("slow", ()=>{
+		$(".vote1").fadeIn("slow")
+	})
+    const firstVote = function(data) {
+        $.post("vote/vote1",{vote: data});
+    }
+</script>

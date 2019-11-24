@@ -1,0 +1,23 @@
+<div class='container text-center vote2'>
+<div class="display-4">Gobernación</div>
+    <div class="row">
+        <% @candidates.each do |c| %>
+            <div class="card col-sm-4 m-auto rounded" style="width: 18rem;">
+                <%= image_tag(c.picture, class: "img-fluid img-thumbnail p-1 rounded") %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= c[:name] %> <%= c[:last_name] %> </h5>
+                    <p class="card-text"><%= c[:cv] %></p>
+                    <div class="btn btn-primary" onclick="secondVote({vote: {name: '<%=c[:name]%>', id: '<%=c[:id]%>'}})">Go somewhere</div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+<script>
+	$(".initVote").fadeOut("slow", ()=>{
+		$(".vote2").fadeIn("slow")
+	})
+    const secondVote = function(data) {
+        $.post("vote/vote2",{vote: data});
+    }
+</script>

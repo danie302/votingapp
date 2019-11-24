@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   post 'votingpoint/register' => 'voting_point#register'
   post 'votant/register' => 'votant#register'
   post 'vote/init' => 'vote#init_vote'
+  post 'vote/check' => 'vote#check_cc'
+  post 'vote/vote1' => 'vote#first_vote'
+  post 'vote/vote2' => 'vote#second_vote'
+  post 'vote/confirm' => 'vote#confirm_vote'
 end

@@ -1,0 +1,25 @@
+<div class="container confirm" style="width: 18rem;">
+    <div class="display-4">Vote info</div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="h5"><%= @vote1 %></div>
+            <%= image_tag(@pic1, class: "img-fluid img-thumbnail p-1 rounded") %>
+        </div>
+        <div class="col-sm-6">
+            <div class="h5"><%= @vote2 %></div>
+            <%= image_tag(@pic2, class: "img-fluid img-thumbnail p-1 rounded") %>    
+        </div>
+    </div>
+    <div class="row">
+        <div class="btn btn-success" onclick="confirmVote(true)"> Confirm vote </div>
+        <div class="btn btn-danger" onclick="confirmVote(false)"> Cancel </div>
+    </div>
+</div>
+<script>
+    $(".initVote").fadeOut("slow", ()=>{
+		$(".confirm").fadeIn("slow")
+	})
+    const confirmVote = function(data) {
+        $.post("vote/confirm",{accept: data});
+    }
+</script>

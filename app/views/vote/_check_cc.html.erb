@@ -1,0 +1,15 @@
+<%= form_for :vote, :method => "post",:url => { :action => :check_cc }, :html => {:class => 'container text-center digitCC'} do |f| %>
+	<%= f.label session["votantLocation"], nil, class: "votingPointLabel" %>
+	<p class="form-group row">
+		<%= f.label "Enter your CC", nil, class: 'col-6' %><br>
+		<%= f.number_field :cc, placeholder: 'CC', class: 'form-control text-center col-6' %>
+	</p>
+	<p>
+		<%= f.submit "Start Voting", class: 'btn btn-secondary text-center btn2' %>
+	</p>
+<% end %>
+<script>
+	$(".initVote").fadeOut("slow", ()=>{
+		$(".digitCC").fadeIn("slow")
+	})
+</script>

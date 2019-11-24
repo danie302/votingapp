@@ -51,14 +51,14 @@
 						<% end %>
 					</li>
 				</ul>
-				<% if @candidates %>
+				<% if @candidates_list %>
 					<ul class="navbar-nav my-2 my-lg-0">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Edit Candidate
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<% @candidates.each do |c| %>
+								<% @candidates_list.each do |c| %>
 									<%= link_to({controller: "candidate", action: "edit", params: {cc: c[:cc]}}, class: "dropdown-item") do %>
 										<%= c[:cc] %>
 									<% end %>
