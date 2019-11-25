@@ -66,9 +66,6 @@ class VoteController < ApplicationController
 
     def confirm_vote
         if params[:accept]
-            puts "--------------------------------------------"
-            puts session["votantID"]
-            puts "--------------------------------------------"
             @vote = Vote.new(voter_id: session["votantID"], voting_point_id: session["votingPointID"], alcaldia: session["alcaldiaVoteID"], gobernacion: session["gobernacionVoteID"])
             if @vote.save
                 puts "Done"

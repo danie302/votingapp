@@ -1,42 +1,42 @@
 <div class="candidateMain">
     <div class="card">
         <div class="card-header text-center">
-            Welcome candidate
+            Bienvenido futuro candidato
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">Edit your info</h5>
-            <p class="card-text text-center">Fill the form to edit yourself in our voting system as a candidate.</p>
+            <h5 class="card-title text-center">Forma parte de nuestro sistema</h5>
+            <p class="card-text text-center">Llena el siguiente formulario para ser parte de nuestro sistema y competir por el puesto</p>
         </div>
 
         <%= form_for :candidate, :method => "post",:url => { :action => :edit_candidate }, :html => {:class => 'container text-center'} do |f| %>
             <p class="form-group">
-                <%= f.text_field :name, placeholder: 'Name', class: 'form-control text-center' %>
+                <%= f.text_field :name, placeholder: 'Nombre', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.text_field :last_name, placeholder: 'Last Name', class: 'form-control text-center' %>
+                <%= f.text_field :last_name, placeholder: 'Apellido', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
                 <%= f.text_field :cc, placeholder: 'CC', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.text_area :cv, placeholder: 'Curriculum vitae description', class: 'form-control text-center' %>
+                <%= f.text_area :cv, placeholder: 'Descripción de hoja de vida', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.text_field :city, placeholder: 'City', class: 'form-control text-center' %>
+                <%= f.text_field :city, placeholder: 'Ciudad', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.text_field :department, placeholder: 'Department', class: 'form-control text-center' %>
+                <%= f.text_field :department, placeholder: 'Departamento', class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.label "Position", nil, class: '' %><br>
+                <%= f.label "Cargo", nil, class: '' %><br>
                 <%= f.select "position", options_for_select(@opts), class: 'form-control text-center' %>
             </p>
             <p class="form-group">
-                <%= f.label "Party", nil, class: '' %><br>
+                <%= f.label "Partido", nil, class: '' %><br>
                 <%= f.select "politic_party_id", options_for_select(@parties_names), class: 'form-control text-center' %>
             </p>
             <p>
-                <%= f.submit "Edit Candidate", class: 'btn btn-secondary text-center' %>
+                <%= f.submit "Guardar", class: 'btn btn-secondary text-center' %>
             </p>
         <% end %>
     </div>

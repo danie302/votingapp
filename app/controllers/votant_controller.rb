@@ -2,7 +2,7 @@ class VotantController < ApplicationController
     def index
         @state = flash["votantState"]
         @voting_points = VotingPoint.all
-        @voting_points_names = ["Choose your voting point"]
+        @voting_points_names = ["Escoge tu punto de votación"]
         @voting_points.each { |v|
             @voting_points_names.push(v[:name])
         }
@@ -13,17 +13,14 @@ class VotantController < ApplicationController
         if @voting_point
             @voter = Voter.find_by(cc: votant_params[:cc])
             if @voter
-                puts "Voter already register"
                 flash["votantState"] = "exist"
                 redirect_to :action => "index"
             else
                 @voting_point.voters.create(name: votant_params[:name], last_name: votant_params[:last_name], cc: votant_params[:cc], city: votant_params[:city], department: votant_params[:department])
-                puts "Votant register"
                 flash["votantState"] = ""
                 redirect_to :controller => "home" ,:action => "index"
             end
         else
-            puts "That voting point is not register in our system"
             flash["votantState"] = "notExist"
             redirect_to :action => "index"
         end

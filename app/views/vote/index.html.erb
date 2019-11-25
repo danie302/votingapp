@@ -1,10 +1,10 @@
 <div class="container m-2" id="voteBox">
 	<%= form_for :vote, :method => "post",:url => { :action => :init_vote }, :html => {:class => 'container text-center initVote'} do |f| %>
 		<p class="form-group row">
-			<%= f.label "Select your voting point", nil, class: 'col-6' %><br>
+			<%= f.label "Seleccion tu punto de votación", nil, class: 'col-6' %><br>
 			<%= f.select "voting_point", options_for_select(@votingPoint), class: 'form-control text-center col-6' %>
 		</p>
-		<%= f.submit "Start Voting", class: 'btn btn-secondary text-center' %>
+		<%= f.submit "Comienza a votar", class: 'btn btn-secondary text-center' %>
 	</p>
 	<% end %>
 	<% if (@render == "check_cc" or @render == "vote1" or @render == "vote2" or @render == "confirm")  %>

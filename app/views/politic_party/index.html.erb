@@ -1,29 +1,29 @@
 <div class="registerMain">
     <div class="card">
         <div class="card-header text-center">
-            Welcome future politic party
+            Bievenido futuro partido
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">Let your party be part of our system</h5>
-            <p class="card-text text-center">Fill the form to register your party in our voting system and be able to register you candidates.</p>
+            <h5 class="card-title text-center">Deja que tu partido sea parte de nuestro sistema</h5>
+            <p class="card-text text-center">Llena el siguiente formulario para poder registrar a tus candidatos</p>
         </div>
 
         <%= form_for :politic_party, :method => "post",:url => { :action => :register }, :html => {:class => 'container text-center'} do |f| %>
             <p class="form-group">
-                <%= f.label "Name of your party", nil, class: '' %><br>
-                <%= f.text_field :name, placeholder: 'Party Name', class: 'form-control text-center' %>
+                <%= f.label "Nombre de tu partido", nil, class: '' %><br>
+                <%= f.text_field :name, placeholder: 'Nombre', class: 'form-control text-center' %>
             </p>
             <p>
-                <%= f.submit "Register Party", class: 'btn btn-secondary text-center' %>
+                <%= f.submit "Registrar", class: 'btn btn-secondary text-center' %>
             </p>
             <div class="alert alert-success <%= @state == "save" ? "display" : "hidden" %>" role="alert">
-                Party successfully register
+                Partido registrado con exito
             </div>
             <div class="alert alert-warning <%= @state == "exist" ? "display" : "hidden" %>" role="alert">
-                Party already exist
+                Partido ya existe
             </div>
             <div class="alert alert-danger <%= @state == "error" ? "display" : "hidden" %>" role="alert">
-                There is an error
+                Ah ocurrido un error
             </div>
         <% end %>
     </div>

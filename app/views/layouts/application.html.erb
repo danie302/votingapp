@@ -13,8 +13,8 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</head>
 	<body style="background-color: #f5f5f5">
-		<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-			<%= link_to  "Voting", {controller: "home", action: "index"}, class: "navbar-brand" %>
+		<nav class="navbar navbar-expand-lg navbar-light navbarbg">
+			<%= link_to  "VotingApp", {controller: "home", action: "index"}, class: "navbar-brand" %>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -22,31 +22,37 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<%= link_to({controller: "candidate", action: "index"}, class: "nav-link") do %>
-							Register Candidate
+							Registrar candidato
 							<span class="sr-only">(current)</span>
 						<% end %>
 					</li>
 					<li class="nav-item">
 						<%= link_to({controller: "votant", action: "index"}, class: "nav-link") do %>
-							Register Votant
+							Registrar votante
 							<span class="sr-only">(current)</span>
 						<% end %>
 					</li>
 					<li class="nav-item">
 						<%= link_to({controller: "voting_point", action: "index"}, class: "nav-link") do %>
-							Register voting point
+							Registrar punto de votación
 							<span class="sr-only">(current)</span>
 						<% end %>
 					</li>
 					<li class="nav-item">
 						<%= link_to({controller: "politic_party", action: "index"}, class: "nav-link") do %>
-							Register politic party
+							Registar partido politico
 							<span class="sr-only">(current)</span>
 						<% end %>
 					</li>
 					<li class="nav-item">
 						<%= link_to({controller: "vote", action: "index"}, class: "nav-link") do %>
-							Vote
+							Votar
+							<span class="sr-only">(current)</span>
+						<% end %>
+					</li>
+					<li class="nav-item">
+						<%= link_to({controller: "statistic", action: "index"}, class: "nav-link") do %>
+							Estadisticas
 							<span class="sr-only">(current)</span>
 						<% end %>
 					</li>
@@ -55,7 +61,7 @@
 					<ul class="navbar-nav my-2 my-lg-0">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Edit Candidate
+								Editar candidato
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<% @candidates_list.each do |c| %>
