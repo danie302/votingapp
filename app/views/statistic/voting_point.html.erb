@@ -1,10 +1,11 @@
 <div class="container p-3 ">
+    <%= flash["filtValue"] %>
     <select id="select1">
         <% @voting_points_names.each do |v| %>
             <option value="<%=v%>"> <%=v%> </option>
         <% end %>
     </select>
-    <div class="btn btn-primary selectbtn" onclick="filterVotingPoint()">Mostrar por punto de votación</div>
+    <div class="btn btn-primary selectbtn" onclick="filterVotingPoint2()">Mostrar por punto de votación</div>
     <div class="p-2">
         <div class="h4 text-center">Alcaldia <%= @countA %> votos</div>
         <div class="row"> 
@@ -44,9 +45,9 @@
 </div>
 
 <script> 
-    const filterVotingPoint = ()=>{
+    const filterVotingPoint2 = ()=>{
         if ($("#select1")[0].value != "Escoge un punto de votación") {
-            $.post("statistics/startfilt",{value: $("#select1")[0].value});
+            $.post("startfilt",{value: $("#select1")[0].value});
         } else {
             console.log("no filtra");
         }

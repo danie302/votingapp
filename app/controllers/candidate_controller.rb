@@ -59,6 +59,10 @@ class CandidateController < ApplicationController
         end
     end
 
+    def show
+        
+    end
+
     private def candidate_params
         params.require(:candidate).permit(:name, :last_name, :cc, :cv, :city, :department, :position, :party, :picture, :gov_plan)
     end
