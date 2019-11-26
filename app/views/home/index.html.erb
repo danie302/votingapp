@@ -1,11 +1,16 @@
 <div class="indexMain">
     <div class="card">
-        <div class="card-header text-center">
+        <div class="card-header text-center navtitle">
             Bienvenido
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">Descubre la nueva forma de escoger a tus gobernantes</h5>
-            <p class="card-text text-center">Utiliza nuestro nuevo sistema de votaciones para escoger a tus futuros gobernantes en una forma mas segura y dinamica</p>
+            <h5 class="card-title text-center navtitle">Descubre la nueva forma de escoger a tus gobernantes</h5>
+            <p class="card-text text-center navlinks">Utiliza nuestro nuevo sistema de votaciones para escoger a tus futuros gobernantes en una forma mas segura y dinamica</p>
         </div>
+    </div>
+    <div class="homeVoteBtn">
+        <%= link_to({controller: "vote", action: "index"}, class: "homeVoteBtnText") do %>
+            Votar
+        <% end %>
     </div>
 </div>

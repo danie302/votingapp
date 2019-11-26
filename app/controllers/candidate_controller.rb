@@ -60,7 +60,11 @@ class CandidateController < ApplicationController
     end
 
     def show
-        
+        @candidates = Candidate.find_by_sql("Select c.*, pp.name as pname from candidates as c join politic_parties as pp on pp.id = c.politic_party_id")
+    end
+
+    def pdf 
+        p params[:pdf]
     end
 
     private def candidate_params

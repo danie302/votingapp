@@ -2,6 +2,7 @@ class VoteController < ApplicationController
     skip_before_action :verify_authenticity_token
     def index
         @render = flash["voteRender"]
+        @state = flash["voteError"]
         votingPoint = VotingPoint.all
         @votingPoint = []
         votingPoint.each { |p|
@@ -33,19 +34,27 @@ class VoteController < ApplicationController
         @votant = Voter.find_by(cc: params[:vote][:cc])
         if @votant
             if @votant[:voting_point_id] === @votingPoint[:id]
-                flash["voteRender"] = "vote1"
-                session["votantCC"] = params[:vote][:cc]
-                session["votantID"] = @votant[:id]
-                session["votingPointID"] = @votingPoint[:id]
-                @candidates = Candidate.where(position: "Alcaldia")
-                redirect_to :action => "index"
+                if Vote.find_by(voter_id: @votant[:id])
+                    flash["voteRender"] = "check_cc"
+                    flash["voteError"] = "voteDone"
+                    redirect_to :action => "index"
+                else
+                    flash["voteRender"] = "vote1"
+                    session["votantCC"] = params[:vote][:cc]
+                    session["votantID"] = @votant[:id]
+                    session["votingPointID"] = @votingPoint[:id]
+                    @candidates = Candidate.where(position: "Alcaldia")
+                    redirect_to :action => "index"
+                end
             else
-                puts "-------------------------------------------"
-                puts "Voting point incorrect"
-                puts "-------------------------------------------"
+                flash["voteRender"] = "check_cc"
+                flash["voteError"] = "vperror"
+                redirect_to :action => "index"
             end
         else
-            puts "No CC found"
+            flash["voteRender"] = "check_cc"
+            flash["voteError"] = "nocc"
+            redirect_to :action => "index"
         end
         
     end

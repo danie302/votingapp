@@ -14,21 +14,6 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener("turbolinks:request-start", function() {
-    let indexMain = document.querySelector(".indexMain");
-    let registerMain = document.querySelector(".registerMain");
-    let candidateMain = document.querySelector(".candidateMain");
-    if (indexMain) {
-        indexMain.classList.add("slide-in-elliptic-left-bck");
-    }
-    if (registerMain) {
-        registerMain.classList.add("flip-2-hor-top-1");
-    }
-    if (candidateMain) {
-        candidateMain.classList.add("rotate-scale-up-diag-1");
-    }
-});
-
 document.addEventListener("turbolinks:render", function() {
     let indexMain = document.querySelector(".indexMain");
     let registerMain = document.querySelector(".registerMain");

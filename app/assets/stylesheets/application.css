@@ -166,3 +166,11 @@
 .navbarbg {
     background-color: #48b8ca;
 }
+
+.navtitle {
+    font-family: "Calistoga", cursive;
+}
+
+.navlinks {
+    font-family: "Noto Serif", serif;
+}

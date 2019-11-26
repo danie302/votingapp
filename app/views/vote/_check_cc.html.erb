@@ -1,4 +1,13 @@
 <%= form_for :vote, :method => "post",:url => { :action => :check_cc }, :html => {:class => 'container text-center digitCC'} do |f| %>
+	<div class="alert alert-warning <%= @state == "voteDone" ? "display" : "hidden" %>" role="alert">
+		Votante ya voto
+	</div>
+	<div class="alert alert-warning <%= @state == "nocc" ? "display" : "hidden" %>" role="alert">
+		Votante no existe
+	</div>
+	<div class="alert alert-warning <%= @state == "vperror" ? "display" : "hidden" %>" role="alert">
+		Su cedula no esta inscrita en este punto de votación
+	</div>
 	<%= f.label session["votantLocation"], nil, class: "votingPointLabel" %>
 	<p class="form-group row">
 		<%= f.label "Digite su CC", nil, class: 'col-6' %><br>

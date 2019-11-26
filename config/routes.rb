@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post 'vote/vote2' => 'vote#second_vote'
   post 'vote/confirm' => 'vote#confirm_vote'
   post 'statistics/startfilt' => 'statistic#start_filt'
+  post 'candidate/pdf' => 'candidate#pdf'
 end

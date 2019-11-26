@@ -1,4 +1,4 @@
-<div class="container p-3 ">
+<div id="statisticBox" class="container p-3 ">
     <select id="select1">
         <% @voting_points_names.each do |v| %>
             <option value="<%=v%>"> <%=v%> </option>
@@ -51,4 +51,7 @@
             console.log("no filtra");
         }
     }
+    $(document).ready(function () {
+		$("#statisticBox").fadeIn(650);
+	});
 </script>

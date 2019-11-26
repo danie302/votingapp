@@ -1,0 +1,30 @@
+<div id="candidatesBox" class="p-2">
+    <div class="h4 text-center">Candidatos</div>
+    <div id="showPDF"></div>
+    <div class="row"> 
+        <% @candidates.each do |c| %>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <%= image_tag(c.picture, class: "img-fluid img-thumbnail p-1 rounded") %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= c[:name] %> <%= c[:last_name] %></h5>
+                        <p class="card-text"><%= c[:cv] %></p>
+                        <p class="card-text">Partido politico: <%= c[:pname] %></p>
+                        <% if c.gov_plan.present? %>
+                            <%= link_to "Plan de gobierno", rails_blob_path(c.gov_plan, disposition: "attachment"), class: "btn btn-primary" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    const showPDF = (pdf) => {
+        $.post("candidate/pdf",{pdf: pdf});
+    }
+    $(document).ready(function () {
+		$("#candidatesBox").fadeIn(650);
+	});
+</script>
