@@ -19,7 +19,7 @@
     $(".initVote").fadeOut("slow", ()=>{
 		$(".confirm").fadeIn("slow")
 	})
-    const confirmVote = function(data) {
+    confirmVote = function(data) {
         $.post("vote/confirm",{accept: data});
     }
 </script>

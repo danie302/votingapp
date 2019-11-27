@@ -17,7 +17,7 @@
 	$(".initVote").fadeOut("slow", ()=>{
 		$(".vote2").fadeIn("slow")
 	})
-    const secondVote = function(data) {
+    secondVote = function(data) {
         $.post("vote/vote2",{vote: data});
     }
 </script>
