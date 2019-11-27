@@ -43,7 +43,6 @@ class VoteController < ApplicationController
                     session["votantCC"] = params[:vote][:cc]
                     session["votantID"] = @votant[:id]
                     session["votingPointID"] = @votingPoint[:id]
-                    @candidates = Candidate.where(position: "Alcaldia")
                     redirect_to :action => "index"
                 end
             else

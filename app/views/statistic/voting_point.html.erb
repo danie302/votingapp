@@ -45,7 +45,7 @@
 </div>
 
 <script> 
-    const filterVotingPoint2 = ()=>{
+    filterVotingPoint2 = function(){
         if ($("#select1")[0].value != "Escoge un punto de votación") {
             $.post("startfilt",{value: $("#select1")[0].value});
         } else {
