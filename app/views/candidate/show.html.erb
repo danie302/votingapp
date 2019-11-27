@@ -21,7 +21,7 @@
 </div>
 
 <script>
-    const showPDF = (pdf) => {
+    showPDF = function(pdf){
         $.post("candidate/pdf",{pdf: pdf});
     }
     $(document).ready(function () {

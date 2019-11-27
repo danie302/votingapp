@@ -44,13 +44,15 @@
 </div>
 
 <script> 
-    const filterVotingPoint = ()=>{
-        if ($("#select1")[0].value != "Escoge un punto de votación") {
-            $.post("statistics/startfilt",{value: $("#select1")[0].value});
-        } else {
-            console.log("no filtra");
+    
+        filterVotingPoint = function(){
+            if ($("#select1")[0].value != "Escoge un punto de votación") {
+                $.post("statistics/startfilt",{value: $("#select1")[0].value});
+            } else {
+                console.log("no filtra");
+            }
         }
-    }
+    
     $(document).ready(function () {
 		$("#statisticBox").fadeIn(650);
 	});
